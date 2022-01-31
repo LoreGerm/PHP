@@ -1,0 +1,20 @@
+<?php
+    $table = "";
+    $n = $_POST['n1'];
+    $table .="<tr>";
+    for($i=0; $i<11; $i++){
+        $m = $x*$i;
+        $table .= "<td>".($x*$i)."</td>";
+    }
+    $table .= "</tr>";
+?>
+
+
+<form method="POST" action="index.php" style="margin-top: 10px;">
+        <label>NUMERO</label>
+        <input type="number" name="n1">
+</form>
+
+<table class="table table-bordered table-dark table-striped" style="margin-top: 50px;">
+    <?= $table ?>  <!-- STAMPA TABLE -->
+</table>
