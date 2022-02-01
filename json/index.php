@@ -11,37 +11,27 @@
 
 <?php
 
-
-    function ciao(){
-        if(isset($_POST["chiave"])){
-            $link = 'https://api.itbook.store/1.0/search'.$_POST['chiave'];
-            $file = json_decode(file_get_contents($link));
-            $books = "books";
-            
-            
-            echo $file;
-
-
-            /*
-            $card = '<div class="card" style="width: 18rem;">';
-            foreach($file -> $key as $value){
-                $card .= "<img src='$value->image' class='card-img-top' alt=''>";
-                $card .= "<div class='card-body'>";
-                $card .= "<h5 class='card-title'>'$value->subtitle'</h5>";
-                $card .= "<p class='card-text'>Price:  '$value->price'</p>";
-                $card .= "<a href='$value->url' class='btn btn-primary'>Link</a>";
-                $card .= "<div>";
-            }
+    if(isset($_POST["chiave"])){
+        $link = 'https://api.itbook.store/1.0/search/'.$_POST['chiave'];
+        $file = json_decode(file_get_contents($link));
+        
+    
+        $card = '<div class="card">';
+        foreach($file -> books as $value){
             $card .= "<div>";
-            */
+            $card .= "<img src='$value->image' class='card-img-top'>";
+            $card .= "<div class='card-body'>";
+            $card .= "<h5 class='card-title'>'$value->subtitle'</h5>";
+            $card .= "<p class='card-text'>Price:  '$value->price'</p>";
+            $card .= "<a href='$value->url' class='btn btn-primary'>Link</a>";
+            $card .= "</div> </div>";
         }
-
-    }    
+        $card .= "</div>";
+        
+    }
         
         
 ?>
-
-
 
 <body class="container">
     
@@ -52,8 +42,8 @@
     </form>
 
 
-    <div class="container">
-        <?php ciao() ?>
+    <div class="container col-3">
+        <?= $card ?>
     </div>
 
     
