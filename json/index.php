@@ -11,9 +11,13 @@
 </head>
 
 <?php
-
     if(isset($_POST["chiave"])){
-        $link = 'https://api.itbook.store/1.0/search/'.$_POST['chiave'];
+        if ($_POST['chiave'] == ""){
+            $link = 'https://api.itbook.store/1.0/search/new';
+        }
+        else{
+            $link = 'https://api.itbook.store/1.0/search/'.$_POST['chiave'];
+        }
         $file = json_decode(file_get_contents($link));
         
     
@@ -37,16 +41,19 @@
 
 <body class="container">
     
-    <form action="" method="POST" class="form">
-        <label for="">Parola chiave</label>
-        <input type="text" name="chiave">
-        <input type="submit">
-    </form>
+    <div class="container" style="margin-top: 20px;">
+        <form action="" method="POST" class="form">
+            <label for="">Parola chiave</label>
+            <input type="text" name="chiave">
+            <input type="submit">
+        </form>
 
 
-    <div class="container">
-        <?= $card ?>
+        <div class="container" style="margin-top: 50px;">
+            <?= $card ?>
+        </div>
     </div>
+    
 
     
 
