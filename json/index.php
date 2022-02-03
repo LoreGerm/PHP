@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,15 +17,16 @@
         $file = json_decode(file_get_contents($link));
         
     
-        $card = '<div class="card">';
+        $card = '<div class="row">';
         foreach($file -> books as $value){
-            $card .= "<div>";
+            $card .= '<div class="col-3">';
+            $card .= '<div class="card">';
             $card .= "<img src='$value->image' class='card-img-top'>";
             $card .= "<div class='card-body'>";
-            $card .= "<h5 class='card-title'>'$value->subtitle'</h5>";
-            $card .= "<p class='card-text'>Price:  '$value->price'</p>";
+            $card .= "<h5 class='card-title'>$value->subtitle</h5>";
+            $card .= "<p class='card-text'>Price:  $value->price</p>";
             $card .= "<a href='$value->url' class='btn btn-primary'>Link</a>";
-            $card .= "</div> </div>";
+            $card .= "</div> </div> </div>";
         }
         $card .= "</div>";
         
@@ -42,11 +44,10 @@
     </form>
 
 
-    <div class="container col-3">
+    <div class="container">
         <?= $card ?>
     </div>
 
     
 
 </body>
-</html>
