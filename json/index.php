@@ -13,7 +13,7 @@
 <?php
     if(isset($_POST["chiave"])){
         if ($_POST['chiave'] == ""){
-            $link = 'https://api.itbook.store/1.0/search/new';
+            $link = 'https://api.itbook.store/1.0/new';
         }
         else{
             $link = 'https://api.itbook.store/1.0/search/'.$_POST['chiave'];
