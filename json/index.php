@@ -27,7 +27,7 @@
             $card .= '<div class="card">';
             $card .= "<img src='$value->image' class='card-img-top'>";
             $card .= "<div class='card-body'>";
-            $card .= "<h5 class='card-title'>$value->subtitle</h5>";
+            $card .= "<h5 class='card-title'>$value->title</h5>";
             $card .= "<p class='card-text'>Price:  $value->price</p>";
             $card .= "<a href='$value->url' class='btn btn-primary'>Link</a>";
             $card .= "</div> </div> </div>";
