@@ -1,0 +1,10 @@
+
+
+
+git clone sshLink
+git add .
+git commit -m "nome file" oppure .
+git push
+
+
+
