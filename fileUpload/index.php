@@ -24,7 +24,12 @@
 
             if (0 === $_FILES['file']['error']){
                 $exention = '.'.strtolower(pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION));
-                $_FILES['file']['name'] = $_POST['name'].$exention;
+                if($exention == "."){
+                    $_FILES['file']['name'] = $_POST['name'];
+                }
+                else{
+                    $_FILES['file']['name'] = $_POST['name'].$exention;
+                }
                 if(move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir.basename($_FILES['file']['name']))){
                     echo 'upload';
                 }
