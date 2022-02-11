@@ -23,26 +23,43 @@
             $uploadDir = 'file/';
 
             if (0 === $_FILES['file']['error']){
-                $exention = '.'.strtolower(pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION));
-                if($exention == "."){
-                    $_FILES['file']['name'] = $_POST['name'];
+                $exention = '.'.strtolower(strtolower(pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION)));
+                if($exention != ".jpg" && $exention != ".png" && $exention != ".jpeg") {
+                    echo "Sorry, only JPG, JPEG, PNG files are allowed.";
                 }
                 else{
-                    $_FILES['file']['name'] = $_POST['name'].$exention;
-                }
-                if(move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir.basename($_FILES['file']['name']))){
-                    echo 'upload';
-                }
-                else{
-                    echo 'no';
+                    if($exention == "."){
+                        $_FILES['file']['name'] = $_POST['name'];
+                    }
+                    else{
+                        $_FILES['file']['name'] = $_POST['name'].$exention;
+                    }
+                    if(move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir.basename($_FILES['file']['name']))){
+                        echo 'upload';
+                    }
+                    else{
+                        echo 'no';
+                    }
                 }
             }
             else{
                 echo 'error';
-            }
+            }   
         }
         
     ?>
+
+    <div class="row" style="margin-top:50px">
+            <?php
+                $directory = "file";
+                $images = glob($directory . "/*.*");
+
+                foreach($images as $image){
+                    echo '<img src="'.$image.'"style="width:20rem"><br>';
+                }
+            ?>
+    </div>
+        
 
 </body>
 </html>
