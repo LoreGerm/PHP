@@ -12,9 +12,9 @@
 <body class="container" style="background-color: #525252;">
     
     <form action="" method="POST" class="form" style="margin-top: 20px;" enctype="multipart/form-data">
-        <label for="">Nome file</label>
+        <label style="color:#fff">Nome file</label>
         <input type="text" name="name">
-        <input type="file" name="file">
+        <input type="file" name="file" style="color:#fff">
         <input type="submit">
     </form>
 
