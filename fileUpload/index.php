@@ -50,14 +50,14 @@
     ?>
 
     <div class="row" style="margin-top:50px">
-            <?php
-                $directory = "file";
-                $images = glob($directory . "/*.*");
+                <?php
+                    $directory = "file";
+                    $images = glob($directory . "/*.*");
 
-                foreach($images as $image){
-                    echo '<img src="'.$image.'"style="width:20rem"><br>';
-                }
-            ?>
+                    foreach($images as $image){
+                        echo '<div class="col-3"><img src="'.$image.'"style="width:20rem"></div>';
+                    }
+                ?>
     </div>
         
 
