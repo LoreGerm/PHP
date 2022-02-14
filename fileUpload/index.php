@@ -58,7 +58,8 @@
                     $images = glob($directory . "/*.*");
                     foreach($images as $image){
                         $nome = substr($image,7);
-                        echo '<div class="col-3"><img src="'.$image.'"style="width:20rem"> <a href="'elimina.php?nome=$nome'"><button type="button" class="btn btn-danger">Elimina</button></a> </div>';
+                        $fun = 'elimina.php?nome=$nome';
+                        echo '<div class="col-3"><img src="'.$image.'"style="width:20rem"> <a href="'.$fun.'"><button type="button" class="btn btn-danger">Elimina</button></a> </div>';
                     }
                 ?>
     </div>
