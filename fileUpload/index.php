@@ -14,8 +14,8 @@
     
     <form action="" method="POST" class="form" style="margin-top: 20px;" enctype="multipart/form-data">
         <label style="color:#fff">Nome file</label>
-        <input type="text" name="name">
-        <input type="file" name="file" style="color:#fff">
+        <input type="text" name="name" required>
+        <input type="file" name="file" style="color:#fff" required>
         <input type="submit">
     </form>
 
