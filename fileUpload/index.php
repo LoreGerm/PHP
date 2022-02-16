@@ -56,8 +56,8 @@
                     $directory = "file";
                     $images = glob($directory . "/*.*");
                     foreach($images as $image){
-                        $x = substr(5,$image);
-                        echo '<div class="col-3"><img src="'.$image.'"style="width:20rem"> <a href="elimina.php?file='.$x.'"><button type="button" class="btn btn-danger">Elimina</button></a> </div>';
+                        $nome_file = substr($image,5);
+                        echo '<div class="col-3"><img src="'.$image.'"style="width:20rem"> <a href="elimina.php?file='.$nome_file.'"><button type="button" class="btn btn-danger">Elimina</button></a> </div>';
                     }
                 ?>
     </div>
