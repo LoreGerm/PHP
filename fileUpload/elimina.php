@@ -1,9 +1,7 @@
 <?php
 
-if (isset($_GET['name'])) {
-    function Elimina($nome){
-        $directory = "file";
-        $images = glob($directory . "/" . $nome );
-    }
-        
+$nome = $_GET['file'];
+$nome = glob('file' . "/" . $nome);
+unlink($nome);
+header('Location: index.php')
 ?>

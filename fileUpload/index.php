@@ -8,8 +8,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <?php  require_once "elimina.php";  ?>
 </head>
-<?php  require_once "elimina.php";  ?>
 <body class="container" style="background-color: #525252;">
     
     <form action="" method="POST" class="form" style="margin-top: 20px;" enctype="multipart/form-data">
@@ -50,16 +50,14 @@
 
 ?>
 
-    ?>
 
     <div class="row" style="margin-top:50px">
                 <?php
                     $directory = "file";
                     $images = glob($directory . "/*.*");
                     foreach($images as $image){
-                        $nome = substr($image,7);
-                        $fun = 'elimina.php?nome=$nome';
-                        echo '<div class="col-3"><img src="'.$image.'"style="width:20rem"> <a href="'.$fun.'"><button type="button" class="btn btn-danger">Elimina</button></a> </div>';
+                        $x = substr(5,$image);
+                        echo '<div class="col-3"><img src="'.$image.'"style="width:20rem"> <a href="elimina.php?file='.$x.'"><button type="button" class="btn btn-danger">Elimina</button></a> </div>';
                     }
                 ?>
     </div>
