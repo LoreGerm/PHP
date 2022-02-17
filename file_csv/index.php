@@ -45,7 +45,7 @@
 
 
 
-<table class="table">
+<table class="table" style="margin-top: 50px;">
   <thead>
     <tr>
         <?php
@@ -63,7 +63,7 @@
             $file = file('file.csv');
             $pieces = explode(",", $file[1]);
             foreach($pieces as $i){
-                echo '<th scope="col">'.$i.'</th>';
+                echo '<td scope="col">'.$i.'</td>';
             }
         ?>
     </tr>
@@ -72,7 +72,7 @@
             $file = file('file.csv');
             $pieces = explode(",", $file[2]);
             foreach($pieces as $i){
-                echo '<th scope="col">'.$i.'</th>';
+                echo '<td scope="col">'.$i.'</td>';
             }
         ?>
     </tr>
@@ -81,7 +81,7 @@
             $file = file('file.csv');
             $pieces = explode(",", $file[3]);
             foreach($pieces as $i){
-                echo '<th scope="col">'.$i.'</th>';
+                echo '<td scope="col">'.$i.'</td>';
             }
         ?>
     </tr>
