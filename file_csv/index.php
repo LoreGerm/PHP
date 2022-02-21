@@ -47,10 +47,6 @@
     </form>
 
 
-    
-    
-
-
 
 <table class="table" style="margin-top: 50px;">
   <thead>
@@ -81,9 +77,9 @@
                         echo '<td scope="col"> Km '.str_replace('.', ',', $pieces[$j]).'</td>';
                     }
                     else{
-                        echo '<td scope="col">'.$pieces[$j].'</td>';
+                        $data = explode("-", $pieces[$j]);
+                        echo '<td scope="col">'.$data[2].'/'.$data[1].'/'.$data[0].'</td>';
                     }
-                    
                 }
                 echo '</tr>';
             }
