@@ -18,15 +18,15 @@
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">€</span>
-        <input type="number" class="form-control" name="importo" aria-label="Amount (to the nearest dollar)" placeholder="Importo" required>
+        <input type="float" class="form-control" name="importo" aria-label="Amount (to the nearest dollar)" placeholder="Importo" required>
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">L</span>
-        <input type="number" class="form-control" name="litri" placeholder="Litri" required>
+        <input type="float" class="form-control" name="litri" placeholder="Litri" required>
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Km</span>
-        <input type="number" class="form-control" name="km" placeholder="Km attuali" required>
+        <input type="float" class="form-control" name="km" placeholder="Km attuali" required>
     </div>
     <button type="submit" class="btn btn-primary">Salva</button>
     </form>
@@ -58,24 +58,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
         <?php
             $file = file('file.csv');
-            $pieces = explode(",", $file[1]);
-            foreach($pieces as $i){
-                echo '<td scope="col">'.$i.'</td>';
+            for($i=1; $i<count($file); $i=$i+1){
+                echo '<tr>';
+                $pieces = explode(",", $file[$i]);
+                foreach($pieces as $j){
+                    echo '<td scope="col">'.$j.'</td>';
+                }
+                echo '</tr>';
             }
+            
         ?>
-    </tr>
-    <tr>
-        <?php
-            $file = file('file.csv');
-            $pieces = explode(",", $file[2]);
-            foreach($pieces as $i){
-                echo '<td scope="col">'.$i.'</td>';
-            }
-        ?>
-    </tr>
   </tbody>
 </table>
     
