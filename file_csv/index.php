@@ -28,20 +28,24 @@
         <span class="input-group-text">Km</span>
         <input type="float" class="form-control" name="km" placeholder="Km attuali" required>
     </div>
-    <button type="submit" class="btn btn-primary">Salva</button>
+    <div style="display: flex;">
+        <button type="submit" class="btn btn-primary">Salva</button>
+        <?php
+            if(isset($_POST['data'])){
+                $myfile = fopen("file.csv", "a");
+                $elementi = strval($_POST['data']).','.strval($_POST['importo']).','.strval($_POST['litri']).','.strval($_POST['km']).PHP_EOL;
+                
+                fwrite($myfile,$elementi);
+                fclose($myfile);
+                echo '<h3 style="margin-left:50px">Dati salvati</h3>';
+            }   
+        ?>
+    </div>
     </form>
 
 
-    <?php
-        if(isset($_POST['data'])){
-            $myfile = fopen("file.csv", "a");
-            $elementi = strval($_POST['data']).','.strval($_POST['importo']).','.strval($_POST['litri']).','.strval($_POST['km']).PHP_EOL;
-            
-            fwrite($myfile,$elementi);
-            fclose($myfile);
-            echo 'Dati salvati';
-        }   
-    ?>
+    
+    
 
 
 
