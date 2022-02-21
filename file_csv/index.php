@@ -18,21 +18,24 @@
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">€</span>
-        <input type="float" class="form-control" name="importo" aria-label="Amount (to the nearest dollar)" placeholder="Importo" required>
+        <input type="number" step="0.01" class="form-control" name="importo" aria-label="Amount (to the nearest dollar)" placeholder="Importo" required>
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">L</span>
-        <input type="float" class="form-control" name="litri" placeholder="Litri" required>
+        <input type="number" step="0.01" class="form-control" name="litri" placeholder="Litri" required>
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Km</span>
-        <input type="float" class="form-control" name="km" placeholder="Km attuali" required>
+        <input type="number" step="0.01" class="form-control" name="km" placeholder="Km attuali" required>
     </div>
     <div style="display: flex;">
         <button type="submit" class="btn btn-primary">Salva</button>
         <?php
             if(isset($_POST['data'])){
                 $myfile = fopen("file.csv", "a");
+                foreach($i as $_POST){
+                    str_replace(',', '.', $i);
+                }
                 $elementi = strval($_POST['data']).','.strval($_POST['importo']).','.strval($_POST['litri']).','.strval($_POST['km']).PHP_EOL;
                 
                 fwrite($myfile,$elementi);
@@ -67,8 +70,20 @@
             for($i=1; $i<count($file); $i=$i+1){
                 echo '<tr>';
                 $pieces = explode(",", $file[$i]);
-                foreach($pieces as $j){
-                    echo '<td scope="col">'.$j.'</td>';
+                for($j=0; $j<count($pieces); $j=$j+1){
+                    if ($j == 1){
+                        echo '<td scope="col"> € '.str_replace('.', ',', $pieces[$j]).'</td>';
+                    }
+                    elseif($j == 2){
+                        echo '<td scope="col"> L. '.str_replace('.', ',', $pieces[$j]).'</td>';
+                    }
+                    elseif($j == 3){
+                        echo '<td scope="col"> Km '.str_replace('.', ',', $pieces[$j]).'</td>';
+                    }
+                    else{
+                        echo '<td scope="col">'.$pieces[$j].'</td>';
+                    }
+                    
                 }
                 echo '</tr>';
             }
