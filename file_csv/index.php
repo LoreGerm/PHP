@@ -76,15 +76,6 @@
             }
         ?>
     </tr>
-    <tr>
-        <?php
-            $file = file('file.csv');
-            $pieces = explode(",", $file[3]);
-            foreach($pieces as $i){
-                echo '<td scope="col">'.$i.'</td>';
-            }
-        ?>
-    </tr>
   </tbody>
 </table>
     
